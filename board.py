@@ -51,8 +51,15 @@ class Board:
         return None
 
 
-    def est_vide(self, x, y):
+    def est_vide_case(self, x, y):
         return self.cases[x][y] is CASE_VIDE
+
+    def est_plein(self):
+        for x in range(self.taille):
+            for y in range(self.taille):
+                if self.cases[x][y] is CASE_VIDE:
+                    return False
+        return True
 
     def reset(self):
         for x in range(self.taille):
@@ -68,3 +75,14 @@ class Board:
                 if self.cases[x][y] is CASE_VIDE:
                     cases.append((x, y))
         return cases
+
+    # debug
+    def print_board(self):
+        for y in range(self.taille):
+            for x in range(self.taille):
+                case = self.cases[x][y]
+                if case is CASE_VIDE:
+                    print(".", end=" ")
+                else:
+                    print(case, end=" ")
+            print()
