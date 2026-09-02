@@ -33,10 +33,10 @@ class Board:
             for y in range(self.taille - self.alignement + 1):
                 self.combinations.append([(x - i, y + i) for i in range(self.alignement)])
 
-    def poser_pion(self, x, y, symbol):
+    def poser_pion(self, x, y, symbole):
         if self.cases[x][y] is not CASE_VIDE:
             raise ValueError("Case occupée")
-        self.cases[x][y] = symbol
+        self.cases[x][y] = symbole
 
     def symbole_gagnant(self):
         for combinaison in self.combinations:
